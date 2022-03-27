@@ -10,12 +10,9 @@ public class Canvas {
     private int x;
     private int y;
     private JPanel paneCanvas = new JPanel();
-    DrawUseCase drawUseCase = new DrawUseCase();
 
     public Canvas(){
         paneCanvas.setBackground(Color.white);
-
-        paneCanvas.add(drawUseCase);
 
         // Create and register listener for mouse and mouse motion events
         MouseHandler mouseHandler = new MouseHandler();
@@ -43,16 +40,10 @@ public class Canvas {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            setX(e.getX());
-            setY(e.getY());
-            System.out.println("clicked at [" + getX() + ", " + getY() + "]");
         }
 
         @Override
         public void mousePressed(MouseEvent e) {
-            setX(e.getX());
-            setY(e.getY());
-            System.out.println("pressed at [" + getX() + ", " + getY() + "]");
         }
 
         @Override
@@ -67,30 +58,18 @@ public class Canvas {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-//            setX(e.getX());
-//            setY(e.getY());
-//            System.out.println("entered at [" + getX() + ", " + getY() + "]");
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
-//            setX(e.getX());
-//            setY(e.getY());
-//            System.out.println("exited at [" + getX() + ", " + getY() + "]");
         }
 
         @Override
         public void mouseDragged(MouseEvent e) {
-//            setX(e.getX());
-//            setY(e.getY());
-//            System.out.println("dragged at [" + getX() + ", " + getY() + "]");
         }
 
         @Override
         public void mouseMoved(MouseEvent e) {
-//            setX(e.getX());
-//            setY(e.getY());
-//            System.out.println("moved at [" + getX() + ", " + getY() + "]");
         }
     }
 }

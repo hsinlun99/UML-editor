@@ -4,8 +4,7 @@ import javax.swing.JButton;
 import javax.swing.WindowConstants;
 import java.awt.*;
 
-import ModeButton.UseCase;
-import ModeBehavior.DrawUseCase;
+import ModeButton.*;
 
 public class Layout {
     protected JFrame frame = new JFrame("UML Editor");
@@ -24,31 +23,27 @@ public class Layout {
         cstr.insets = new Insets(5, 5, 5, 5);
 
         // each mode button
-        JButton btnSelect = new JButton("Select");
+        BtnSelect btnSelect = new BtnSelect();
         setLyoutCstr(cstr, 0, 0, 1, 1, 0, 1);
-        panel.add(btnSelect, cstr);
+        panel.add(btnSelect.getBtnSelect(), cstr);
 
-
-        JButton btnAssocLine = new JButton("Association Line");
+        BtnAssociationLine btnAssocLine = new BtnAssociationLine();
         setLyoutCstr(cstr, 0, 1, 1, 1, 0, 1);
-        panel.add(btnAssocLine, cstr);
+        panel.add(btnAssocLine.getBtnAssocLine(), cstr);
 
-
-        JButton btnGeneLine = new JButton("Generalization Line");
+        BtnGeneralizationLine btnGeneLine = new BtnGeneralizationLine();
         setLyoutCstr(cstr, 0, 2, 1, 1, 0, 1);
-        panel.add(btnGeneLine, cstr);
+        panel.add(btnGeneLine.getBtnGeneLine(), cstr);
 
-
-        JButton btnCompLine = new JButton("Composition Line");
+        BtnCompositionLine btnCompLine = new BtnCompositionLine();
         setLyoutCstr(cstr, 0, 3, 1, 1, 0, 1);
-        panel.add(btnCompLine, cstr);
+        panel.add(btnCompLine.getBtnCompLine(), cstr);
 
-        JButton btnClass = new JButton("Class");
+        BtnClass btnClass = new BtnClass();
         setLyoutCstr(cstr, 0, 4, 1, 1, 0, 1);
-        panel.add(btnClass, cstr);
+        panel.add(btnClass.getBtnClass(), cstr);
 
-//        JButton btnUseCase = new JButton("Use Case");
-        UseCase btnUseCase = new UseCase();
+        BtnUseCase btnUseCase = new BtnUseCase();
         setLyoutCstr(cstr, 0, 5, 1, 1, 0, 1);
         panel.add(btnUseCase.getBtnUseCase(), cstr);
 

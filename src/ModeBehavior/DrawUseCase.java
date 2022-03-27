@@ -9,7 +9,6 @@ public class DrawUseCase extends JComponent
     private int x = 0;
     private int y = 0;
 
-    public DrawUseCase(){}
     public DrawUseCase(int _x, int _y){
         setX(_x - 60);
         setY(_y - 40);
@@ -35,15 +34,11 @@ public class DrawUseCase extends JComponent
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g; // cast g to Graphics2D
 
-//        this.setOpaque(true);
-//        this.setBackground(Color.white);
-        this.setSize(130, 90);
+        this.setSize(128, 88);
 
         g2d.setPaint(Color.black);
         g2d.setStroke(new BasicStroke(5));
-        g2d.draw(new Ellipse2D.Double(5, 5, 120, 80));
-
-
+        g2d.draw(new Ellipse2D.Double(2, 2, 120, 80));
     }
 
 }
