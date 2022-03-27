@@ -1,4 +1,4 @@
-package umlEditorButton;
+package ModeButton;
 
 public class GeneralizationLine {
 }

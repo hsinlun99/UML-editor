@@ -1,12 +1,17 @@
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JButton;
+import javax.swing.WindowConstants;
 import java.awt.*;
+
+import ModeButton.UseCase;
+import ModeBehavior.DrawUseCase;
 
 public class Layout {
     protected JFrame frame = new JFrame("UML Editor");
 
 
-    public Layout(){
-        frame.setSize(1024, 600);
+    public Layout() {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         JPanel panel = new JPanel(new GridBagLayout());
@@ -18,6 +23,7 @@ public class Layout {
         cstr.fill = GridBagConstraints.BOTH;
         cstr.insets = new Insets(5, 5, 5, 5);
 
+        // each mode button
         JButton btnSelect = new JButton("Select");
         setLyoutCstr(cstr, 0, 0, 1, 1, 0, 1);
         panel.add(btnSelect, cstr);
@@ -37,34 +43,32 @@ public class Layout {
         setLyoutCstr(cstr, 0, 3, 1, 1, 0, 1);
         panel.add(btnCompLine, cstr);
 
-
         JButton btnClass = new JButton("Class");
         setLyoutCstr(cstr, 0, 4, 1, 1, 0, 1);
         panel.add(btnClass, cstr);
 
-
-
-
-        JButton btnUseCase = new JButton("Use Case");
+//        JButton btnUseCase = new JButton("Use Case");
+        UseCase btnUseCase = new UseCase();
         setLyoutCstr(cstr, 0, 5, 1, 1, 0, 1);
-        panel.add(btnUseCase, cstr);
+        panel.add(btnUseCase.getBtnUseCase(), cstr);
 
 
         // canvas panel
-        JPanel paneCanvas = new JPanel();
-        paneCanvas.setBackground(Color.white);
+        Canvas canvas = new Canvas();
         setLyoutCstr(cstr, 1, 0, 6, 6, 1, 1);
-        panel.add(paneCanvas, cstr);
+        panel.add(canvas.getPaneCanvas(), cstr);
+
 
 //        frame.pack(); // Adjust the frame's size to fit the inner components.
+        frame.setSize(800, 600);
         frame.setVisible(true);
     }
 
-    public void setLyoutCstr(GridBagConstraints _cstr, int _gridx, int _gridy, int _gridwidth, int _gridheight, int _weightx, int _weighty){
+    public void setLyoutCstr(GridBagConstraints _cstr, int _gridx, int _gridy, int _gridwidth, int _gridheight, int _weightx, int _weighty) {
         _cstr.gridx = _gridx;
         _cstr.gridy = _gridy;
         _cstr.gridwidth = _gridwidth;
-        _cstr.gridheight = _gridwidth;
+        _cstr.gridheight = _gridheight;
         _cstr.weightx = _weightx;
         _cstr.weighty = _weighty;
     }
