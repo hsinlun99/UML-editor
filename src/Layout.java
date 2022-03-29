@@ -6,6 +6,7 @@ import ModeButton.*;
 
 public class Layout {
     protected JFrame frame = new JFrame("UML Editor");
+    private ToolBtnGroup toolBtnGroup;
 
     public Layout() {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -20,7 +21,7 @@ public class Layout {
         cstr.insets = new Insets(5, 5, 5, 5);
 
         // button group for toggling button
-        ToolBtnGroup toolBtnGroup = new ToolBtnGroup();
+        toolBtnGroup = ToolBtnGroup.getInstance();
 
         // each mode button
         BtnSelect btnSelect = new BtnSelect("Select");
