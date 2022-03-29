@@ -18,6 +18,7 @@ public class Canvas {
         MouseHandler mouseHandler = new MouseHandler();
         paneCanvas.addMouseListener(mouseHandler);
 //        addMouseMotionListener(mouseHandler);
+
     }
 
     public void setX(int _x){

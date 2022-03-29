@@ -5,24 +5,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BtnCompositionLine {
-    private JButton btnCompLine = new JButton("Composition Line");
+public class BtnCompositionLine extends TglBtnBase{
 
-    public BtnCompositionLine(){
-        BtnHandler btnHandler = new BtnHandler();
-        getBtnCompLine().addActionListener(btnHandler);
+    public BtnCompositionLine(String _btnName){
+        super(_btnName);
+//        BtnHandler btnHandler = new BtnHandler();
+//        getBtnCompLine().addActionListener(btnHandler);
     }
 
-    public JButton getBtnCompLine() {
-        return btnCompLine;
-    }
+    @Override
+    public void tglBtnOnClick() {
 
-
-    private class BtnHandler implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            getBtnCompLine().setBackground(Color.GRAY);
-        }
     }
 }

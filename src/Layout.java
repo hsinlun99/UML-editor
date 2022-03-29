@@ -1,14 +1,11 @@
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JButton;
 import javax.swing.WindowConstants;
 import java.awt.*;
-
 import ModeButton.*;
 
 public class Layout {
     protected JFrame frame = new JFrame("UML Editor");
-
 
     public Layout() {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -22,35 +19,43 @@ public class Layout {
         cstr.fill = GridBagConstraints.BOTH;
         cstr.insets = new Insets(5, 5, 5, 5);
 
+        // button group for toggling button
+        ToolBtnGroup toolBtnGroup = new ToolBtnGroup();
+
         // each mode button
-        BtnSelect btnSelect = new BtnSelect();
-        setLyoutCstr(cstr, 0, 0, 1, 1, 0, 1);
-        panel.add(btnSelect.getBtnSelect(), cstr);
+        BtnSelect btnSelect = new BtnSelect("Select");
+        setLayoutCstr(cstr, 0, 0, 1, 1, 0, 1);
+        panel.add(btnSelect.getTglBtn(), cstr);
+        toolBtnGroup.getBtnGroup().add(btnSelect.getTglBtn());
 
-        BtnAssociationLine btnAssocLine = new BtnAssociationLine();
-        setLyoutCstr(cstr, 0, 1, 1, 1, 0, 1);
-        panel.add(btnAssocLine.getBtnAssocLine(), cstr);
+        BtnAssociationLine btnAssocLine = new BtnAssociationLine("Association Line");
+        setLayoutCstr(cstr, 0, 1, 1, 1, 0, 1);
+        panel.add(btnAssocLine.getTglBtn(), cstr);
+        toolBtnGroup.getBtnGroup().add(btnAssocLine.getTglBtn());
 
-        BtnGeneralizationLine btnGeneLine = new BtnGeneralizationLine();
-        setLyoutCstr(cstr, 0, 2, 1, 1, 0, 1);
-        panel.add(btnGeneLine.getBtnGeneLine(), cstr);
+        BtnGeneralizationLine btnGeneLine = new BtnGeneralizationLine("Generalization Line");
+        setLayoutCstr(cstr, 0, 2, 1, 1, 0, 1);
+        panel.add(btnGeneLine.getTglBtn(), cstr);
+        toolBtnGroup.getBtnGroup().add(btnGeneLine.getTglBtn());
 
-        BtnCompositionLine btnCompLine = new BtnCompositionLine();
-        setLyoutCstr(cstr, 0, 3, 1, 1, 0, 1);
-        panel.add(btnCompLine.getBtnCompLine(), cstr);
+        BtnCompositionLine btnCompLine = new BtnCompositionLine("Composition Line");
+        setLayoutCstr(cstr, 0, 3, 1, 1, 0, 1);
+        panel.add(btnCompLine.getTglBtn(), cstr);
+        toolBtnGroup.getBtnGroup().add(btnCompLine.getTglBtn());
 
-        BtnClass btnClass = new BtnClass();
-        setLyoutCstr(cstr, 0, 4, 1, 1, 0, 1);
-        panel.add(btnClass.getBtnClass(), cstr);
+        BtnClass btnClass = new BtnClass("Class");
+        setLayoutCstr(cstr, 0, 4, 1, 1, 0, 1);
+        panel.add(btnClass.getTglBtn(), cstr);
+        toolBtnGroup.getBtnGroup().add(btnClass.getTglBtn());
 
-        BtnUseCase btnUseCase = new BtnUseCase();
-        setLyoutCstr(cstr, 0, 5, 1, 1, 0, 1);
-        panel.add(btnUseCase.getBtnUseCase(), cstr);
-
+        BtnUseCase btnUseCase = new BtnUseCase("Use Case");
+        setLayoutCstr(cstr, 0, 5, 1, 1, 0, 1);
+        panel.add(btnUseCase.getTglBtn(), cstr);
+        toolBtnGroup.getBtnGroup().add(btnUseCase.getTglBtn());
 
         // canvas panel
         Canvas canvas = new Canvas();
-        setLyoutCstr(cstr, 1, 0, 6, 6, 1, 1);
+        setLayoutCstr(cstr, 1, 0, 6, 6, 1, 1);
         panel.add(canvas.getPaneCanvas(), cstr);
 
 
@@ -59,7 +64,7 @@ public class Layout {
         frame.setVisible(true);
     }
 
-    public void setLyoutCstr(GridBagConstraints _cstr, int _gridx, int _gridy, int _gridwidth, int _gridheight, int _weightx, int _weighty) {
+    public void setLayoutCstr(GridBagConstraints _cstr, int _gridx, int _gridy, int _gridwidth, int _gridheight, int _weightx, int _weighty) {
         _cstr.gridx = _gridx;
         _cstr.gridy = _gridy;
         _cstr.gridwidth = _gridwidth;

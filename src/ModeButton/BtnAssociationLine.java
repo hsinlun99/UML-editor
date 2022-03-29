@@ -5,24 +5,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BtnAssociationLine {
-    private JButton btnAssocLine = new JButton("Association Line");
+public class BtnAssociationLine extends TglBtnBase {
 
-    public BtnAssociationLine(){
-        BtnHandler btnHandler = new BtnHandler();
-        getBtnAssocLine().addActionListener(btnHandler);
-    }
-
-    public JButton getBtnAssocLine() {
-        return btnAssocLine;
+    public BtnAssociationLine(String _btnName){
+        super(_btnName);
     }
 
 
-    private class BtnHandler implements ActionListener{
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            getBtnAssocLine().setBackground(Color.GRAY);
-        }
+    @Override
+    public void tglBtnOnClick() {
+        System.out.println("Assoc click!");
     }
+
 }

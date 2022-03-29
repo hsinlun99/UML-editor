@@ -5,24 +5,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BtnGeneralizationLine {
-    private JButton btnGeneLine = new JButton("Generalization Line");
+public class BtnGeneralizationLine extends TglBtnBase {
 
-    public BtnGeneralizationLine(){
-        BtnGeneralizationLine.BtnHandler btnHandler = new BtnGeneralizationLine.BtnHandler();
-        getBtnGeneLine().addActionListener(btnHandler);
+    public BtnGeneralizationLine(String _btnName){
+        super(_btnName);
     }
 
-    public JButton getBtnGeneLine() {
-        return btnGeneLine;
+    @Override
+    public void tglBtnOnClick() {
+        System.out.println("test click!");
     }
 
-
-    private class BtnHandler implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            getBtnGeneLine().setBackground(Color.GRAY);
-        }
-    }
 }
