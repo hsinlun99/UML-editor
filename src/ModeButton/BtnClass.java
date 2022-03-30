@@ -5,24 +5,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BtnClass {
-    private JButton btnClass = new JButton("Class");
+public class BtnClass extends TglBtnBase{
 
-    public BtnClass(){
-        BtnHandler btnHandler = new BtnHandler();
-        getBtnClass().addActionListener(btnHandler);
-    }
-
-    public JButton getBtnClass(){
-        return btnClass;
+    public BtnClass(String _btnName){
+        super(_btnName);
     }
 
 
-    private class BtnHandler implements ActionListener{
+    @Override
+    public void tglBtnOnClick() {
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            getBtnClass().setBackground(Color.GRAY);
-        }
     }
+
 }

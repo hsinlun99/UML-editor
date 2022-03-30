@@ -1,4 +1,5 @@
 import ModeBehavior.DrawUseCase;
+import ModeButton.ToolBtnGroup;
 
 import javax.swing.*;
 import javax.swing.event.MouseInputListener;
@@ -10,6 +11,7 @@ public class Canvas {
     private int x;
     private int y;
     private JPanel paneCanvas = new JPanel();
+    private ToolBtnGroup toolBtnGroup = ToolBtnGroup.getInstance();
 
     public Canvas(){
         paneCanvas.setBackground(Color.white);
@@ -18,6 +20,7 @@ public class Canvas {
         MouseHandler mouseHandler = new MouseHandler();
         paneCanvas.addMouseListener(mouseHandler);
 //        addMouseMotionListener(mouseHandler);
+
     }
 
     public void setX(int _x){
@@ -48,6 +51,7 @@ public class Canvas {
 
         @Override
         public void mouseReleased(MouseEvent e) {
+            System.out.println("Current Mode: "+toolBtnGroup.getBtnGroup().getSelection());
             setX(e.getX());
             setY(e.getY());
             paneCanvas.add(new DrawUseCase(e.getX(),e.getY()));
