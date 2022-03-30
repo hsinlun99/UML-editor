@@ -4,12 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
-public class DrawUseCase extends JComponent
+public class UseCaseOperation extends JComponent
 {
     private int x = 0;
     private int y = 0;
 
-    public DrawUseCase(int _x, int _y){
+    public UseCaseOperation(int _x, int _y){
         setX(_x - 60);
         setY(_y - 40);
     }
@@ -33,6 +33,10 @@ public class DrawUseCase extends JComponent
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g; // cast g to Graphics2D
+
+        JLabel label = new JLabel("New Use Case");
+        this.add(label);
+
 
         this.setSize(128, 88);
 

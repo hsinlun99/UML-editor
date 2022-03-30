@@ -1,9 +1,6 @@
 package ModeButton;
 
-import javax.swing.JButton;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class BtnUseCase extends TglBtnBase{
 
@@ -13,7 +10,9 @@ public class BtnUseCase extends TglBtnBase{
 
     @Override
     public void tglBtnOnClick() {
-
+        System.out.println("Use Case click");
+//        getTglBtn().setBackground(Color.GRAY);
+        getTglBtn().getModel().setActionCommand(getBtnName());
     }
 
 

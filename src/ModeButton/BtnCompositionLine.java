@@ -1,10 +1,5 @@
 package ModeButton;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 public class BtnCompositionLine extends TglBtnBase{
 
     public BtnCompositionLine(String _btnName){
@@ -15,6 +10,9 @@ public class BtnCompositionLine extends TglBtnBase{
 
     @Override
     public void tglBtnOnClick() {
+        System.out.println("Composition click!");
+
+        getTglBtn().getModel().setActionCommand(getBtnName());
 
     }
 }

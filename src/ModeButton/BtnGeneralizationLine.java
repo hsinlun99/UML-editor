@@ -1,10 +1,5 @@
 package ModeButton;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 public class BtnGeneralizationLine extends TglBtnBase {
 
     public BtnGeneralizationLine(String _btnName){
@@ -13,7 +8,10 @@ public class BtnGeneralizationLine extends TglBtnBase {
 
     @Override
     public void tglBtnOnClick() {
-        System.out.println("test click!");
+        System.out.println("Generalization click!");
+
+        getTglBtn().getModel().setActionCommand(getBtnName());
+
     }
 
 }

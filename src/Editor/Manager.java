@@ -1,26 +1,26 @@
-import ModeBehavior.DrawUseCase;
-import ModeButton.ToolBtnGroup;
+package Editor;
+
+import ModeBehavior.UseCaseOperation;
 
 import javax.swing.*;
 import javax.swing.event.MouseInputListener;
-import java.awt.*;
 import java.awt.event.MouseEvent;
 
-public class Canvas {
 
+public class Manager {
     private int x;
     private int y;
-    private JPanel paneCanvas = new JPanel();
-    private ToolBtnGroup toolBtnGroup = ToolBtnGroup.getInstance();
+    private final ButtonGroup btnGroup = new ButtonGroup();
+    private static Manager instance = null; // for singleton
+    private Canvas canvas = new Canvas(this);
+    private MouseHandler mouseHandler = new MouseHandler();
 
-    public Canvas(){
-        paneCanvas.setBackground(Color.white);
+    public Manager(){
+        canvas.addMouseListener(mouseHandler);
+    }
 
-        // Create and register listener for mouse and mouse motion events
-        MouseHandler mouseHandler = new MouseHandler();
-        paneCanvas.addMouseListener(mouseHandler);
-//        addMouseMotionListener(mouseHandler);
-
+    public ButtonGroup getBtnGroup() {
+        return this.btnGroup;
     }
 
     public void setX(int _x){
@@ -35,45 +35,64 @@ public class Canvas {
     public int getY(){
         return this.y;
     }
-    public JPanel getPaneCanvas(){
-        return this.paneCanvas;
+
+    public static Manager getInstance() {
+        if (instance == null) {
+            instance = new Manager();
+        }
+        return instance;
+    }
+
+    public Canvas getCanvas(){
+        return this.canvas;
     }
 
     private class MouseHandler implements MouseInputListener {
 
+
         @Override
         public void mouseClicked(MouseEvent e) {
+
         }
 
         @Override
         public void mousePressed(MouseEvent e) {
+
         }
 
         @Override
         public void mouseReleased(MouseEvent e) {
-            System.out.println("Current Mode: "+toolBtnGroup.getBtnGroup().getSelection());
+//            System.out.println("Current Mode: "+ manager.getBtnGroup().getSelection().getActionCommand());
             setX(e.getX());
             setY(e.getY());
-            paneCanvas.add(new DrawUseCase(e.getX(),e.getY()));
-            paneCanvas.repaint();
-            paneCanvas.revalidate();
+            canvas.add(new UseCaseOperation(e.getX(),e.getY()));
+//            paneCanvas.add(new DrawClass(e.getX(),e.getY()));
+            canvas.repaint();
+            canvas.revalidate();
             System.out.println("released at [" + getX() + ", " + getY() + "]");
         }
 
         @Override
         public void mouseEntered(MouseEvent e) {
+
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+
         }
 
         @Override
         public void mouseDragged(MouseEvent e) {
+
         }
 
         @Override
         public void mouseMoved(MouseEvent e) {
+
         }
     }
+
+
+
 }

@@ -8,6 +8,8 @@ public class BtnSelect extends TglBtnBase{
 
     @Override
     public void tglBtnOnClick() {
+        System.out.println("Select click");
+        getTglBtn().getModel().setActionCommand(getBtnName());
 
     }
 
