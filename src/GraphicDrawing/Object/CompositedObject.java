@@ -70,8 +70,9 @@ public class CompositedObject extends BaseShape {
     @Override
     public void setPos(double _x, double _y){
         for(BaseShape obj : compositedShapes){
-            obj.setPos(obj.getPos().width+(_x-this.pos.width), obj.getPos().height+(this.pos.height));
+            obj.setPos(obj.getPos().width+(_x-this.pos.width), obj.getPos().height+(_y-this.pos.height));
         }
+        super.setPos(_x, _y);
     }
 
     public ArrayList<BaseShape> getCompositedShapes(){
