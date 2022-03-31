@@ -1,11 +1,12 @@
 package ModeButton;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import Editor.Manager;
+import ModeBehavior.BaseMode;
+import ModeBehavior.GeneralizationLineMode;
 
 public class BtnGeneralizationLine extends TglBtnBase {
+    private BaseMode mode = new GeneralizationLineMode();
+    Manager manager = Manager.getInstance();
 
     public BtnGeneralizationLine(String _btnName){
         super(_btnName);
@@ -13,7 +14,11 @@ public class BtnGeneralizationLine extends TglBtnBase {
 
     @Override
     public void tglBtnOnClick() {
-        System.out.println("test click!");
+        System.out.println("Generalization click!");
+        manager.setMode(mode);
+
+        getTglBtn().getModel().setActionCommand(getBtnName());
+
     }
 
 }

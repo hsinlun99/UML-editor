@@ -1,11 +1,12 @@
 package ModeButton;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import Editor.Manager;
+import ModeBehavior.BaseMode;
+import ModeBehavior.ClassMode;
 
 public class BtnClass extends TglBtnBase{
+    private BaseMode mode = new ClassMode();
+    Manager manager = Manager.getInstance();
 
     public BtnClass(String _btnName){
         super(_btnName);
@@ -14,6 +15,9 @@ public class BtnClass extends TglBtnBase{
 
     @Override
     public void tglBtnOnClick() {
+        System.out.println("Class click!");
+        manager.setMode(mode);
+//        getTglBtn().getModel().setActionCommand(getBtnName());
 
     }
 

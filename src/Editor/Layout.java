@@ -1,16 +1,37 @@
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.WindowConstants;
+package Editor;
+
+import javax.swing.*;
 import java.awt.*;
+
+import MenuItemBehavior.ChangeObjectNameMenuItem;
+import MenuItemBehavior.GroupMenuItem;
+import MenuItemBehavior.UnGroupMenuItem;
 import ModeButton.*;
 
 public class Layout {
     protected JFrame frame = new JFrame("UML Editor");
-    private ToolBtnGroup toolBtnGroup;
+    private Manager manager;
 
     public Layout() {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
+        //menu bar
+        JMenu file = new JMenu("File");
+        JMenu edit = new JMenu("Edit");
+        GroupMenuItem groupMenuItem = new GroupMenuItem("Group");
+        UnGroupMenuItem unGroupMenuItem = new UnGroupMenuItem("UnGroup");
+        ChangeObjectNameMenuItem changeObjectNameMenuItem = new ChangeObjectNameMenuItem("Change object name");
+
+        edit.add(groupMenuItem.getMenuItem());
+        edit.add(unGroupMenuItem.getMenuItem());
+        edit.add(changeObjectNameMenuItem.getMenuItem());
+
+        JMenuBar menuBar = new JMenuBar();
+        menuBar.add(file);
+        menuBar.add(edit);
+        frame.setJMenuBar(menuBar);
+
+        // the main container of the frame
         JPanel panel = new JPanel(new GridBagLayout());
 //        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
         frame.setContentPane(panel);
@@ -21,43 +42,42 @@ public class Layout {
         cstr.insets = new Insets(5, 5, 5, 5);
 
         // button group for toggling button
-        toolBtnGroup = ToolBtnGroup.getInstance();
+        manager = Manager.getInstance();
 
         // each mode button
         BtnSelect btnSelect = new BtnSelect("Select");
         setLayoutCstr(cstr, 0, 0, 1, 1, 0, 1);
         panel.add(btnSelect.getTglBtn(), cstr);
-        toolBtnGroup.getBtnGroup().add(btnSelect.getTglBtn());
+        manager.getBtnGroup().add(btnSelect.getTglBtn());
 
         BtnAssociationLine btnAssocLine = new BtnAssociationLine("Association Line");
         setLayoutCstr(cstr, 0, 1, 1, 1, 0, 1);
         panel.add(btnAssocLine.getTglBtn(), cstr);
-        toolBtnGroup.getBtnGroup().add(btnAssocLine.getTglBtn());
+        manager.getBtnGroup().add(btnAssocLine.getTglBtn());
 
         BtnGeneralizationLine btnGeneLine = new BtnGeneralizationLine("Generalization Line");
         setLayoutCstr(cstr, 0, 2, 1, 1, 0, 1);
         panel.add(btnGeneLine.getTglBtn(), cstr);
-        toolBtnGroup.getBtnGroup().add(btnGeneLine.getTglBtn());
+        manager.getBtnGroup().add(btnGeneLine.getTglBtn());
 
         BtnCompositionLine btnCompLine = new BtnCompositionLine("Composition Line");
         setLayoutCstr(cstr, 0, 3, 1, 1, 0, 1);
         panel.add(btnCompLine.getTglBtn(), cstr);
-        toolBtnGroup.getBtnGroup().add(btnCompLine.getTglBtn());
+        manager.getBtnGroup().add(btnCompLine.getTglBtn());
 
         BtnClass btnClass = new BtnClass("Class");
         setLayoutCstr(cstr, 0, 4, 1, 1, 0, 1);
         panel.add(btnClass.getTglBtn(), cstr);
-        toolBtnGroup.getBtnGroup().add(btnClass.getTglBtn());
+        manager.getBtnGroup().add(btnClass.getTglBtn());
 
         BtnUseCase btnUseCase = new BtnUseCase("Use Case");
         setLayoutCstr(cstr, 0, 5, 1, 1, 0, 1);
         panel.add(btnUseCase.getTglBtn(), cstr);
-        toolBtnGroup.getBtnGroup().add(btnUseCase.getTglBtn());
+        manager.getBtnGroup().add(btnUseCase.getTglBtn());
 
         // canvas panel
-        Canvas canvas = new Canvas();
         setLayoutCstr(cstr, 1, 0, 6, 6, 1, 1);
-        panel.add(canvas.getPaneCanvas(), cstr);
+        panel.add(manager.getCanvas(), cstr);
 
 
 //        frame.pack(); // Adjust the frame's size to fit the inner components.
