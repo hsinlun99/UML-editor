@@ -1,8 +1,12 @@
 package ModeButton;
 
-import java.awt.*;
+import Editor.Manager;
+import ModeBehavior.BaseMode;
+import ModeBehavior.UseCaseMode;
 
 public class BtnUseCase extends TglBtnBase{
+    private BaseMode mode = new UseCaseMode();
+    Manager manager = Manager.getInstance();
 
     public BtnUseCase(String _btnName){
         super(_btnName);
@@ -11,8 +15,9 @@ public class BtnUseCase extends TglBtnBase{
     @Override
     public void tglBtnOnClick() {
         System.out.println("Use Case click");
+        manager.setMode(mode);
 //        getTglBtn().setBackground(Color.GRAY);
-        getTglBtn().getModel().setActionCommand(getBtnName());
+//        getTglBtn().getModel().setActionCommand(getBtnName());
     }
 
 

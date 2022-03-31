@@ -1,22 +1,25 @@
 package Editor;
 
-import ModeBehavior.*;
-
 import javax.swing.*;
-import javax.swing.event.MouseInputListener;
 import java.awt.*;
-import java.awt.event.MouseEvent;
 
-public class Canvas extends JPanel{
+public class Canvas extends JComponent{
+    private Manager manager;
 
     public Canvas(Manager _m){
-        this.setBackground(Color.white);
+        this.manager = _m;
+//        this.setBackground(Color.white);
 
         // Create and register listener for mouse and mouse motion events
 //        MouseHandler mouseHandler = new MouseHandler();
 //        paneCanvas.addMouseListener(mouseHandler);
 //        addMouseMotionListener(mouseHandler);
 
+    }
+
+    @Override
+    public void paint(Graphics g){
+        manager.Paint(g);
     }
 
 
