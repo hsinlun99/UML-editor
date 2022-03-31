@@ -1,8 +1,8 @@
 package ModeBehavior;
 
-import ShapeDrawing.BaseShape;
-import ShapeDrawing.Line.AssociationLine;
-import ShapeDrawing.Port;
+import GraphicDrawing.BaseShape;
+import GraphicDrawing.Line.AssociationLine;
+import GraphicDrawing.Port;
 
 import java.awt.event.MouseEvent;
 

@@ -1,10 +1,11 @@
 package Editor;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.WindowConstants;
+import javax.swing.*;
 import java.awt.*;
 
+import MenuItemBehavior.ChangeObjectNameMenuItem;
+import MenuItemBehavior.GroupMenuItem;
+import MenuItemBehavior.UnGroupMenuItem;
 import ModeButton.*;
 
 public class Layout {
@@ -14,6 +15,23 @@ public class Layout {
     public Layout() {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
+        //menu bar
+        JMenu file = new JMenu("File");
+        JMenu edit = new JMenu("Edit");
+        GroupMenuItem groupMenuItem = new GroupMenuItem("Group");
+        UnGroupMenuItem unGroupMenuItem = new UnGroupMenuItem("UnGroup");
+        ChangeObjectNameMenuItem changeObjectNameMenuItem = new ChangeObjectNameMenuItem("Change object name");
+
+        edit.add(groupMenuItem.getMenuItem());
+        edit.add(unGroupMenuItem.getMenuItem());
+        edit.add(changeObjectNameMenuItem.getMenuItem());
+
+        JMenuBar menuBar = new JMenuBar();
+        menuBar.add(file);
+        menuBar.add(edit);
+        frame.setJMenuBar(menuBar);
+
+        // the main container of the frame
         JPanel panel = new JPanel(new GridBagLayout());
 //        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
         frame.setContentPane(panel);

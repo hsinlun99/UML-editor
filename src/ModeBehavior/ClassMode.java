@@ -1,7 +1,6 @@
 package ModeBehavior;
 
-import ShapeDrawing.BaseShape;
-import ShapeDrawing.Object.ClassObject;
+import GraphicDrawing.Object.ClassObject;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;

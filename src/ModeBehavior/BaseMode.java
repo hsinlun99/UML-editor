@@ -1,7 +1,6 @@
 package ModeBehavior;
 import Editor.Manager;
-import ShapeDrawing.BaseShape;
-import ShapeDrawing.Line.BaseLine;
+import GraphicDrawing.BaseShape;
 
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;

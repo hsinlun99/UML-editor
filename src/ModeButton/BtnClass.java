@@ -3,7 +3,6 @@ package ModeButton;
 import Editor.Manager;
 import ModeBehavior.BaseMode;
 import ModeBehavior.ClassMode;
-import ShapeDrawing.Object.ClassObject;
 
 public class BtnClass extends TglBtnBase{
     private BaseMode mode = new ClassMode();

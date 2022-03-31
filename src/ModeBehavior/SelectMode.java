@@ -1,8 +1,7 @@
 package ModeBehavior;
 
-import Editor.Manager;
-import ShapeDrawing.BaseShape;
-import ShapeDrawing.SelectRange;
+import GraphicDrawing.BaseShape;
+import GraphicDrawing.SelectRange;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -13,9 +12,11 @@ public class SelectMode extends BaseMode{
 
     private final ArrayList<BaseShape> allselectedObjs;
 
+    // Drag object
     private BaseShape selectedObj;
-    private Dimension startPos;
+    private Dimension startDragPos;
 
+    // initial position before grad / range
     private Dimension initPos;
 
     public SelectMode(){
@@ -40,8 +41,9 @@ public class SelectMode extends BaseMode{
         selectedObj = getObj(e.getX(), e.getY());
         // if so, get ready for dragging
         if(selectedObj != null){
+            System.out.println("click on object");
             selectedObj.setSelected(true);
-            startPos = new Dimension(e.getX(), e.getY());
+            startDragPos = new Dimension(e.getX(), e.getY());
             initPos = new Dimension(selectedObj.getPos().width, selectedObj.getPos().height);
         }else{
             // if not, create a select range
@@ -51,11 +53,11 @@ public class SelectMode extends BaseMode{
 
     @Override
     public void mouseDragged(MouseEvent e){
-        System.out.println("select Mouse dragged at " + e.getX() + ", " + e.getY());
+//        System.out.println("select Mouse dragged at " + e.getX() + ", " + e.getY());
 
 
         if(selectedObj != null){
-            selectedObj.setPos(initPos.width + (e.getX()-startPos.width), initPos.height+(e.getY()-startPos.height) );
+            selectedObj.setPos(initPos.width + (e.getX()- startDragPos.width), initPos.height+(e.getY()- startDragPos.height) );
         }else{
             selectRange.setEnd(e.getX(),e.getY());
             for(BaseShape obj : baseShapes){
