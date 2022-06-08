@@ -18,7 +18,7 @@ public class ChangeObjectNameMenuItem extends BaseMenuItem{
         if( allSelectedObjs.size() == 1){
             BaseShape specifiedObj = allSelectedObjs.get(0);
             String originalName = specifiedObj.getName();
-            String objName = JOptionPane.showInputDialog(null, "Object name", originalName);
+            String objName = JOptionPane.showInputDialog(null, "Object Name", originalName);
 
             if(objName == null){
                 objName = originalName;

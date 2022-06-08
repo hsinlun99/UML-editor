@@ -3,12 +3,12 @@ package GraphicDrawing.Object;
 import java.awt.*;
 
 public class ClassObject extends BaseObject{
-    public static Point classSize = new Point(120, 180);
-    public static Point borderSize = new Point(5, 5);
-    protected Point name_location = new Point();
+    public static Point CLASS_SIZE = new Point(120, 180);
+    public static Point BORDER_SIZE = new Point(5, 5);
+    protected Point NAME_LOCATION = new Point();
 
     public ClassObject(Point _pos) {
-        super("Class", _pos, classSize);
+        super("Class", _pos, CLASS_SIZE);
     }
 
     @Override
@@ -16,19 +16,19 @@ public class ClassObject extends BaseObject{
         Graphics2D g2d = (Graphics2D) g; // cast g to Graphics2D
 
 //        g2d.setPaint(Color.black);
-//        g2d.fill(new Rectangle2D.Double(pos.width, pos.height, classSize.x, classSize.y));
+//        g2d.fill(new Rectangle2D.Double(pos.width, pos.height, CLASS_SIZE.x, CLASS_SIZE.y));
 //        g2d.setPaint(Color.orange);
-//        g2d.fill(new Rectangle2D.Double(pos.width + borderSize.x/2, pos.height+borderSize.y/2 + classSize.y/4, classSize.x-borderSize.x, classSize.y/3 - borderSize.y));
-//        g2d.fill(new Rectangle2D.Double(pos.width+borderSize.x/2, pos.height+borderSize.y/2 + classSize.y/3, classSize.x-borderSize.x, classSize.y/3 - borderSize.y));
-//        g2d.fill(new Rectangle2D.Double(pos.width+borderSize.x/2,pos.height+borderSize.y/2 + 2 * classSize.y/3 , classSize.x-borderSize.x, classSize.y/3 - borderSize.y));
+//        g2d.fill(new Rectangle2D.Double(pos.width + BORDER_SIZE.x/2, pos.height+BORDER_SIZE.y/2 + CLASS_SIZE.y/4, CLASS_SIZE.x-BORDER_SIZE.x, CLASS_SIZE.y/3 - BORDER_SIZE.y));
+//        g2d.fill(new Rectangle2D.Double(pos.width+BORDER_SIZE.x/2, pos.height+BORDER_SIZE.y/2 + CLASS_SIZE.y/3, CLASS_SIZE.x-BORDER_SIZE.x, CLASS_SIZE.y/3 - BORDER_SIZE.y));
+//        g2d.fill(new Rectangle2D.Double(pos.width+BORDER_SIZE.x/2,pos.height+BORDER_SIZE.y/2 + 2 * CLASS_SIZE.y/3 , CLASS_SIZE.x-BORDER_SIZE.x, CLASS_SIZE.y/3 - BORDER_SIZE.y));
 //        g2d.fill(new Rectangle2D.Double(7, 118, 90, 30));
 
         g2d.setColor(Color.BLACK);
-        g2d.fillRect(pos.width, pos.height, classSize.x, classSize.y);
+        g2d.fillRect(pos.width, pos.height, CLASS_SIZE.x, CLASS_SIZE.y);
         g2d.setColor(Color.orange);
-        g2d.fillRect(pos.width+borderSize.x/2, pos.height+borderSize.y/2, classSize.x-borderSize.x, classSize.y/3 - borderSize.y);
-        g2d.fillRect(pos.width+borderSize.x/2, pos.height+borderSize.y/2 + classSize.y/3, classSize.x-borderSize.x, classSize.y/3 - borderSize.y);
-        g2d.fillRect(pos.width+borderSize.x/2, pos.height+borderSize.y/2 + 2 * classSize.y/3 , classSize.x-borderSize.x, classSize.y/3 - borderSize.y);
+        g2d.fillRect(pos.width+BORDER_SIZE.x/2, pos.height+BORDER_SIZE.y/2, CLASS_SIZE.x-BORDER_SIZE.x, CLASS_SIZE.y/3 - BORDER_SIZE.y);
+        g2d.fillRect(pos.width+BORDER_SIZE.x/2, pos.height+BORDER_SIZE.y/2 + CLASS_SIZE.y/3, CLASS_SIZE.x-BORDER_SIZE.x, CLASS_SIZE.y/3 - BORDER_SIZE.y);
+        g2d.fillRect(pos.width+BORDER_SIZE.x/2, pos.height+BORDER_SIZE.y/2 + 2 * CLASS_SIZE.y/3 , CLASS_SIZE.x-BORDER_SIZE.x, CLASS_SIZE.y/3 - BORDER_SIZE.y);
 
         drawObjName(g);
 
@@ -42,7 +42,7 @@ public class ClassObject extends BaseObject{
         FontMetrics metrics = g.getFontMetrics();
         g.setFont(new Font("arial", Font.BOLD, 16));
         g.setColor(Color.black);
-        name_location.setLocation(pos.width + size.width/2,pos.height + size.height/4);
-        g.drawString(name, name_location.x - metrics.stringWidth(name)/2 , name_location.y);
+        NAME_LOCATION.setLocation(pos.width + size.width/2,pos.height + size.height/4);
+        g.drawString(name, NAME_LOCATION.x - metrics.stringWidth(name)/2 , NAME_LOCATION.y);
     }
 }
