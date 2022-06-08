@@ -7,8 +7,8 @@ import GraphicDrawing.Port;
 import java.awt.*;
 
 public abstract class BaseObject extends BaseShape {
-    public static int port_size_x = 10;
-    public static int port_size_y = 10;
+    public static int PORT_SIZE_X = 10;
+    public static int PORT_SIZE_Y = 10;
 
     protected Dimension center = new Dimension();
     protected Port[] Ports = new Port[4];
@@ -51,7 +51,7 @@ public abstract class BaseObject extends BaseShape {
     public void drawPort(Graphics _g){
         for(Port p : Ports){
             _g.setColor(Color.black);
-            _g.fillOval(p.getPos().width - port_size_x/2, p.getPos().height - port_size_y/2, port_size_x, port_size_y);
+            _g.fillOval(p.getPos().width - PORT_SIZE_X/2, p.getPos().height - PORT_SIZE_Y/2, PORT_SIZE_X, PORT_SIZE_Y);
         }
     }
 

@@ -15,7 +15,7 @@ public class Manager {
     private final ButtonGroup btnGroup = new ButtonGroup();
     private BaseMode mode;
     private static Manager instance = null; // for singleton
-    private Canvas canvas = new Canvas(this);
+    private Canvas canvas = new Canvas(this); // canvas 間接 singleton
     private MouseHandler mouseHandler = new MouseHandler();
 
     private ArrayList<BaseShape> objs;
@@ -38,7 +38,7 @@ public class Manager {
 
     public Canvas getCanvas(){
         return this.canvas;
-    }
+    } // canvas 間接 singleton
 
     public ArrayList<BaseShape> getObjs() {
         return objs;
@@ -105,14 +105,6 @@ public class Manager {
             canvas.repaint();
             canvas.revalidate();
 
-////            System.out.println("Current Mode: "+ manager.getBtnGroup().getSelection().getActionCommand());
-//            setX(e.getX());
-//            setY(e.getY());
-//            canvas.add(new UseCaseMode(e.getX(),e.getY()));
-////            paneCanvas.add(new DrawClass(e.getX(),e.getY()));
-//            canvas.repaint();
-//            canvas.revalidate();
-//            System.out.println("released at [" + getX() + ", " + getY() + "]");
         }
 
         @Override
